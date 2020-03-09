@@ -6,14 +6,17 @@ use Illuminate\Http\Request;
 
 class PagesController extends Controller
 {
-    //
+	//
 	/**
-	* undocumented function
-	*
-	* @return void
-	*/
+	 * undocumented function
+	 *
+	 * @return void
+	 */
 	public function root()
 	{
+		/* 测试用户是否已经通过邮箱验证 */
+		/* dd(\Auth::user()->hasVerifiedEmail()); */
+
 		return view('page.root');
 	}
 
