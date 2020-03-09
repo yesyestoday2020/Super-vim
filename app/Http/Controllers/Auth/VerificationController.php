@@ -8,7 +8,7 @@ use Illuminate\Foundation\Auth\VerifiesEmails;
 
 class VerificationController extends Controller
 {
-    /*
+	/*
     |--------------------------------------------------------------------------
     | Email Verification Controller
     |--------------------------------------------------------------------------
@@ -19,24 +19,29 @@ class VerificationController extends Controller
     |
     */
 
-    use VerifiesEmails;
+	use VerifiesEmails;
 
-    /**
-     * Where to redirect users after verification.
-     *
-     * @var string
-     */
-    protected $redirectTo = RouteServiceProvider::HOME;
+	/**
+	 * Where to redirect users after verification.
+	 *
+	 * @var string
+	 */
+	protected $redirectTo = RouteServiceProvider::HOME;
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('signed')->only('verify');
-        $this->middleware('throttle:6,1')->only('verify', 'resend');
-    }
+	/**
+	 * Create a new controller instance.
+	 *
+	 * @return void
+	 */
+	public function __construct()
+	{
+		/* 控制器动作要登录后才能使用 */
+		$this->middleware('auth');
+
+		/* 签名认证 */
+		$this->middleware('signed')->only('verify');
+
+		/* 邮箱验证访问频率，一分钟访问6次 */
+		$this->middleware('throttle:6,1')->only('verify', 'resend');
+	}
 }
