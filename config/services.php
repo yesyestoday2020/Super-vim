@@ -31,7 +31,9 @@ return [
 	],
 
 	'stripe' => [
+		/* use模型调整做如下修改*/
 		'model' => 'App\Models\User'::class,
+
 		'key' => env('STRIPE_KEY'),
 		'secret' => env('STRIPE_SECRET')
 	]
