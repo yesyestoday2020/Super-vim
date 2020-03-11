@@ -16,9 +16,9 @@ use Illuminate\Routing\Route;
 Route::get('/', 'PagesController@root')->name('root');
 
 // 用户身份验证相关的路由
-Route::get('login', 'Auth\LoginController@showLoginForm')->name('login'); 
-Route::post('login', 'Auth\LoginController@login');                       
-Route::post('logout', 'Auth\LoginController@logout')->name('logout');     
+Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');
+Route::post('login', 'Auth\LoginController@login');
+Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 // 用户注册相关路由
 Route::get('register', 'Auth\RegisterController@showRegistrationForm')->name('register');
@@ -36,4 +36,4 @@ Route::get('email/verify/{id}/{hash}', 'Auth\VerificationController@verify')->na
 Route::post('email/resend', 'Auth\VerificationController@resend')->name('verification.resend');
 
 /* 资源控制器 */
-Route::resource('usses','UserController',['only'] => ['show','update','edit']);
+Route::resource('usses', 'UserController', ['only' => ['show', 'update', 'edit']]);
