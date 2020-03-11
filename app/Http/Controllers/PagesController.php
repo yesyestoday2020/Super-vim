@@ -15,7 +15,7 @@ class PagesController extends Controller
 	public function root()
 	{
 		/* 测试用户是否已经通过邮箱验证 */
-		/* dd(\Auth::user()->hasVerifiedEmail()); */
+		dd(\Auth::user()->hasVerifiedEmail());
 
 		return view('page.root');
 	}
