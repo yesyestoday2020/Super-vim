@@ -17,4 +17,14 @@ class UsersController extends Controller
 	{
 		return view('users.show', compact('user'));
 	}
+
+	/**
+	 * 添加用户编辑个人信息视图
+	 *
+	 * @return void
+	 */
+	public function edit(User $user)
+	{
+		return view('users.edit', compact('user'));
+	}
 }
