@@ -14,11 +14,12 @@ class User extends Authenticatable implements MustVerifyEmailContract
 
 	/**
 	 * The attributes that are mass assignable.
-	 *
+	 * 在 fillable
+	 * 属性中的字段是可修改的，如果修改的字段并未在这里列出，即使修改了也不会被写入到数据库中
 	 * @var array
 	 */
 	protected $fillable = [
-		'name', 'email', 'password',
+		'name', 'email', 'password', 'introduction',
 	];
 
 	/**
