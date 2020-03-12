@@ -29,10 +29,12 @@
 				</a>
 
 				<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
 					{{-- 添加个人中心入口 --}}
 					<a class="dropdown-item" href="{{route('users.show',Auth::id())}}">个人中心</a>
 					{{-- 添加编辑资料入口 --}}
 					<a class="dropdown-item" href="{{route('users.edit',Auth::id())}}">编辑资料</a>
+
 					<div class="dropdown-divider"></div>
 					<a class="dropdown-item" id="logout" href="#">
 						<form action="{{ route('logout') }}" method="POST">
