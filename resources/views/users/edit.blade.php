@@ -32,6 +32,17 @@
 							<textarea name="introduction" id="introduction-field" class="form-control" rows="3">{{ old('introduction', $user->introduction) }}
 							</textarea>
 						</div>
+
+						{{-- 添加用户头像 --}}
+						<div class="form-group mb-4">
+							<label for="" class="avatar-label">用户头像</label>
+							<input type="file" name="avatar" class="form-control-file">
+
+							@if($user->avatar)
+							  <br>
+							@endif
+						</div>
+.
 						<div class="well well-sm">
 							<button type="submit" class="btn btn-primary">保存</button>
 						</div>
