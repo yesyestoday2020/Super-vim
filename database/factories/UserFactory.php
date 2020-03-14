@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Models\User;
 use Faker\Generator as Faker;
 use Illuminate\Support\Str;
 
@@ -17,12 +17,18 @@ use Illuminate\Support\Str;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
-    return [
-        'name' => $faker->name,
-        'email' => $faker->unique()->safeEmail,
-        'email_verified_at' => now(),
-        'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
-        'remember_token' => Str::random(10),
-    ];
+$factory->define(App\Models\User::class, function (Faker $faker) {
+	$date_time = $faker->date . '' . $faker->time;
+	return [
+		'name' => $faker->name,
+		'email' => $faker->unique()->safeEmail,
+		'email_verified_at' => now(),
+		'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+		'remember_token' => Str::random(10),
+
+		/* 个人简介数据填充方法 */
+		'introduction' => $faker->sentence(),
+		'creat_at' => $date_time,
+		'update_at' => $date_time,
+	];
 });
